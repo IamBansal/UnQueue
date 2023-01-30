@@ -1,6 +1,9 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.unqueue.fragment.register
 
 import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -69,12 +71,15 @@ class RegisterFragment : Fragment() {
         val name = binding.etName.text.toString().trim()
             val phoneNumber = binding.etPhone.text.toString().trim()
             val countryCode = binding.etContact.selectedCountryCode.toString().trim()
-            val dialog = (activity as RegisterActivity).setProgressDialog(requireContext(), "Requesting OTP...")
+
+        val progress = ProgressDialog(requireContext())
+        progress.setMessage("Requesting OTP...")
+        progress.show()
 
             if (phoneNumber.isNotEmpty() && name.isNotEmpty()) {
                 if (phoneNumber.length == 10) {
 
-                    dialog.show()
+                    progress.show()
                     val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
                         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
@@ -83,7 +88,7 @@ class RegisterFragment : Fragment() {
 
                         override fun onVerificationFailed(e: FirebaseException) {
                             Log.w(tag, "onVerificationFailed", e)
-                            dialog.dismiss()
+                            progress.dismiss()
                             Toast.makeText(requireActivity(), e.message, Toast.LENGTH_SHORT).show()
                         }
 
@@ -93,7 +98,7 @@ class RegisterFragment : Fragment() {
                         ) {
                             Log.d(tag, "onCodeSent:$verificationId")
                             val bundle = bundleOf(("otp" to verificationId), ("number" to phoneNumber), ("code" to countryCode), ("name" to name))
-                            dialog.dismiss()
+                            progress.dismiss()
                             findNavController().navigate(R.id.register_to_otp, bundle)
                         }
                     }
@@ -132,22 +137,23 @@ class RegisterFragment : Fragment() {
         if (completedTask.isSuccessful) {
             val account: GoogleSignInAccount? = completedTask.result
             if (account != null) {
-                val dialog = (activity as RegisterActivity).setProgressDialog(requireContext(), "Signing you in...")
-                dialog.show()
-                updateUI(account, dialog)
+                val progress = ProgressDialog(requireContext())
+                progress.setMessage("Signing you in....")
+                progress.show()
+                updateUI(account, progress)
             }
         } else{
             Toast.makeText(requireActivity(), completedTask.exception.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun updateUI(account: GoogleSignInAccount, dialog: AlertDialog) {
+    private fun updateUI(account: GoogleSignInAccount, dialog: ProgressDialog) {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         auth.signInWithCredential(credential).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 dialog.dismiss()
                 startActivity(Intent(requireActivity(), MainActivity::class.java))
-                Toast.makeText(requireActivity(), "Sign in successful with\nUsername : ${account.displayName}\nEmail : ${account.email}", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(requireActivity(), "Sign in successful with\nUsername : ${account.displayName}\nEmail : ${account.email}", Toast.LENGTH_SHORT).show()
                 (activity as RegisterActivity).finish()
             } else {
                 Toast.makeText(requireActivity(), task.exception.toString(), Toast.LENGTH_SHORT).show()

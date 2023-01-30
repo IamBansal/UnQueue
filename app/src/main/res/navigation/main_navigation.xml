@@ -10,6 +10,9 @@
         android:name="com.example.unqueue.fragment.main.WhereAreYouFragment"
         android:label=""
         tools:layout="@layout/fragment_where_are_you" >
+        <argument
+            android:name="qid"
+            app:argType="string" />
         <action
             android:id="@+id/action_whereAreYouFragment_to_QueueFragment"
             app:destination="@id/QueueFragment" />

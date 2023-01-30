@@ -57,6 +57,8 @@
         android:textStyle="bold" />
 
     <ScrollView
+        android:layout_marginVertical="20dp"
+        android:layout_centerInParent="true"
         android:layout_below="@id/tvWhere"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -68,6 +70,7 @@
             android:orientation="vertical" >
 
             <Button
+                android:id="@+id/btnHospital"
                 android:text="@string/hospital"
                 android:textAllCaps="false"
                 android:backgroundTint="@color/lightGrey"
@@ -77,6 +80,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/btnBank"
                 android:text="@string/bank"
                 android:textAllCaps="false"
                 android:backgroundTint="@color/lightGrey"
@@ -86,6 +90,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/btnGovOffice"
                 android:text="@string/government_office"
                 android:textAllCaps="false"
                 android:backgroundTint="@color/lightGrey"
@@ -95,6 +100,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/btnFoodChain"
                 android:text="@string/food_chains"
                 android:backgroundTint="@color/lightGrey"
                 android:padding="15dp"
@@ -104,6 +110,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/Ticket"
                 android:text="@string/ticket_counter"
                 android:textAllCaps="false"
                 android:backgroundTint="@color/lightGrey"
@@ -113,6 +120,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/Airport"
                 android:text="@string/airport"
                 android:textAllCaps="false"
                 android:backgroundTint="@color/lightGrey"
@@ -122,6 +130,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/btnSupermarket"
                 android:text="@string/supermarket"
                 android:backgroundTint="@color/lightGrey"
                 android:padding="15dp"
@@ -134,20 +143,20 @@
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/btnNext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_gravity="bottom"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginVertical="20dp"
-        android:backgroundTint="@color/appColor"
-        android:padding="15dp"
-        android:text="@string/next"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+<!--    <Button-->
+<!--        android:id="@+id/btnNext"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:layout_marginHorizontal="30dp"-->
+<!--        android:layout_marginVertical="20dp"-->
+<!--        android:backgroundTint="@color/appColor"-->
+<!--        android:padding="15dp"-->
+<!--        android:text="@string/next"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold" />-->
 
 </RelativeLayout>

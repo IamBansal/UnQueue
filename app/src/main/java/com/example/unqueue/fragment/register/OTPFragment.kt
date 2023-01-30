@@ -1,5 +1,8 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.unqueue.fragment.register
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -10,7 +13,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.unqueue.activity.MainActivity
-import com.example.unqueue.activity.RegisterActivity
 import com.example.unqueue.databinding.FragmentOTPBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthProvider
@@ -42,12 +44,14 @@ class OTPFragment : Fragment() {
         val userOTP = binding.etOTP.text.toString().trim()
         val backendOTP = arguments?.getString("otp")
 
-        val dialog = (activity as RegisterActivity).setProgressDialog(requireContext(), "Signing you in...")
+        val progress = ProgressDialog(requireContext())
+        progress.setMessage("Signing you in...")
+        progress.show()
 
         if (TextUtils.isEmpty(userOTP)) {
             Toast.makeText(requireActivity(), "Please enter OTP first.", Toast.LENGTH_SHORT).show()
         } else {
-            dialog.show()
+            progress.show()
             val phoneAuthCredential = backendOTP?.let { PhoneAuthProvider.getCredential(it, userOTP) }
             if (phoneAuthCredential != null) {
                 auth.signInWithCredential(phoneAuthCredential)
@@ -59,13 +63,13 @@ class OTPFragment : Fragment() {
 //                            val profileUpdates = UserProfileChangeRequest.Builder().setDisplayName(name).build()
 //                            user!!.updateProfile(profileUpdates)
 //                            incorrectOTP.visibility = View.GONE
-                            dialog.dismiss()
+                            progress.dismiss()
                             startActivity(Intent(requireActivity(), MainActivity::class.java))
                             requireActivity().finish()
 
                         } else {
                             Log.d("check", "Enter correct OTP")
-                            dialog.dismiss()
+                            progress.dismiss()
                             Toast.makeText(requireActivity(), "Enter correct OTP", Toast.LENGTH_SHORT).show()
                         }
                     }
