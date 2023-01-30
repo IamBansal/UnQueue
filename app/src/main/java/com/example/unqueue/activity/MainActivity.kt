@@ -1,4 +1,4 @@
-package com.example.unqueue
+package com.example.unqueue.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

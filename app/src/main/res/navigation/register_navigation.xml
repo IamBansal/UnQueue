@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_navigation"
+    app:startDestination="@id/navigation_who">
+
+    <fragment
+        android:id="@+id/navigation_who"
+        android:name="com.example.unqueue.fragment.register.WhoAreYouFragment"
+        android:label=""
+        tools:layout="@layout/fragment_who_are_you" >
+        <action
+            android:id="@+id/who_to_register"
+            app:destination="@id/navigation_register" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_register"
+        android:name="com.example.unqueue.fragment.register.RegisterFragment"
+        android:label=""
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/register_to_otp"
+            app:destination="@id/navigation_otp" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_otp"
+        android:name="com.example.unqueue.fragment.register.OTPFragment"
+        android:label=""
+        tools:layout="@layout/fragment_o_t_p" />
+
+</navigation>

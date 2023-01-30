@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".fragment.QueueFragment">
+    tools:context=".fragment.main.QueueFragment">
 
     <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginVertical="30dp"
         android:text="@string/unqueue"
-        android:layout_gravity="center"
-        android:textStyle="bold"
         android:textColor="?android:textColorPrimary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
         android:text="@string/your_unique_qid"
-        android:layout_gravity="center"
         android:textColor="?android:textColorPrimary"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:background="@android:color/darker_gray"
+        android:id="@+id/tvQID"
+        android:layout_above="@id/qrCode"
+        android:layout_marginHorizontal="35dp"
+        android:padding="15dp"
+        android:textSize="20sp"
+        android:layout_marginVertical="10dp"
+        android:textColor="?android:textColorPrimary"
+        android:background="@drawable/custom_et"
         android:text="HOS2131"
         android:gravity="center"
         android:layout_width="match_parent"
@@ -31,24 +45,41 @@
         tools:ignore="HardcodedText" />
 
     <ImageView
-        android:src="@mipmap/ic_launcher"
+        android:id="@+id/qrCode"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_qr_code_2_24"
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:text="@string/give_this_qid_to_the_person_behind_the_reception"
-        android:layout_gravity="center"
-        android:textColor="?android:textColorPrimary"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnContinue"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center"
+        android:text="@string/give_this_qid_to_the_person_behind_the_reception"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <Button
-        android:text="@string/continue_text"
-        android:backgroundTint="@color/appColor"
-        android:textAllCaps="false"
+        android:id="@+id/btnContinue"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="20dp"
+        android:backgroundTint="@color/appColor"
+        android:padding="15dp"
+        android:text="@string/continue_text"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-</LinearLayout>
+
+</RelativeLayout>

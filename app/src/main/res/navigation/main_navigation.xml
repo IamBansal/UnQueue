@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/whereAreYouFragment">
+
+    <fragment
+        android:id="@+id/whereAreYouFragment"
+        android:name="com.example.unqueue.fragment.main.WhereAreYouFragment"
+        android:label=""
+        tools:layout="@layout/fragment_where_are_you" >
+        <action
+            android:id="@+id/action_whereAreYouFragment_to_QueueFragment"
+            app:destination="@id/QueueFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/QueueFragment"
+        android:name="com.example.unqueue.fragment.main.QueueFragment"
+        android:label=""
+        tools:layout="@layout/fragment_queue" >
+        <action
+            android:id="@+id/action_QueueFragment_to_queueTimeFragment"
+            app:destination="@id/queueTimeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/queueTimeFragment"
+        android:name="com.example.unqueue.fragment.main.QueueTimeFragment"
+        android:label=""
+        tools:layout="@layout/fragment_queue_time" />
+</navigation>

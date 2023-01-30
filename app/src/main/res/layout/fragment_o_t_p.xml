@@ -1,48 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragment.OTPFragment">
+    tools:context=".fragment.register.OTPFragment">
 
     <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginVertical="30dp"
         android:text="@string/unqueue"
         android:textColor="?android:textColorPrimary"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <TextView
+        android:layout_below="@id/tvName"
         android:text="@string/check_the_otp_sent_to_the_entered_number"
         android:layout_gravity="center"
+        android:gravity="center"
         android:textColor="?android:textColorPrimary"
         android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:textSize="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
+        android:layout_above="@+id/etOTP"
         android:text="@string/enter_your_otp"
-        android:layout_gravity="center"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="30dp"
+        android:textSize="18sp"
         android:textColor="?android:textColorPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <EditText
-        android:background="@drawable/custom_et"
+        android:id="@+id/etOTP"
         android:layout_width="match_parent"
-        android:padding="10dp"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="30dp"
         android:autofillHints=""
+        android:background="@drawable/custom_et"
+        android:inputType="number"
+        android:padding="15dp"
         tools:ignore="LabelFor" />
 
     <Button
-        android:text="@string/register"
-        android:backgroundTint="@color/appColor"
-        android:textAllCaps="false"
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="20dp"
+        android:backgroundTint="@color/appColor"
+        android:padding="15dp"
+        android:text="@string/register"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-</LinearLayout>
+</RelativeLayout>
