@@ -1,6 +1,7 @@
 package com.example.unqueue.fragment.main
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.unqueue.R
+import com.example.unqueue.activity.MainActivity
+import com.example.unqueue.activity.RegisterActivity
 import com.example.unqueue.databinding.FragmentWhereAreYouBinding
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class WhereAreYouFragment : Fragment() {
 
@@ -41,7 +46,9 @@ class WhereAreYouFragment : Fragment() {
         alert.setTitle("Logout Requested!!")
             .setMessage("You sure you want to logout?")
             .setPositiveButton("Yes, logout"){_,_->
-
+                Firebase.auth.signOut()
+                startActivity(Intent(requireActivity(), RegisterActivity::class.java))
+                (activity as MainActivity).finish()
             }
             .setNegativeButton("No"){_,_->}
             .create()

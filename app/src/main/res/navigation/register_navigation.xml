@@ -20,6 +20,9 @@
         android:name="com.example.unqueue.fragment.register.RegisterFragment"
         android:label=""
         tools:layout="@layout/fragment_register" >
+        <argument
+            android:name="otp"
+            app:argType="integer" />
         <action
             android:id="@+id/register_to_otp"
             app:destination="@id/navigation_otp" />
