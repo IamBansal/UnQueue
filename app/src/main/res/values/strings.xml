@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">UnQueue</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="content">~ Eliminate physical queues\n~ Join virtual queues from device\n~ Receive turn notifications\n~ Convenient and efficient</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="unqueue">UnQueue</string>
     <string name="average_waiting_time_is_10_minutes">Average waiting time is 10 minutes</string>
     <string name="_20_people_are_waiting_ahead_in_your_queue">20 people are waiting ahead in your queue</string>
     <string name="notify_me_when_my_turn_comes">Notify me when my turn comes</string>
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
     <string name="what_is_unqueue">What is UnQueue?</string>
     <string name="user">User</string>
     <string name="sign_up_with_google">Sign Up with Google</string>

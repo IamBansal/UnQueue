@@ -13,27 +13,48 @@
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:layout_marginVertical="30dp"
+        android:layout_marginVertical="25dp"
+        android:drawablePadding="7dp"
         android:text="@string/unqueue"
         android:textColor="?android:textColorPrimary"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:drawablePadding="7dp"
-        app:drawableStartCompat="@drawable/logo" />
+        app:drawableStartCompat="@drawable/logo"
+        tools:ignore="RelativeOverlap" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_marginTop="-17dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
+        app:dividerColor="@color/lightGrey" />
+
+    <ImageView
+        android:id="@+id/ivLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="35dp"
+        android:src="@drawable/logout"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/tvWhere"
-        android:layout_below="@id/tvName"
-        android:text="@string/where_are_you"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textColor="?android:textColorPrimary"
-        android:layout_centerInParent="true"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"
-        android:textSize="25sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/where_are_you"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <ScrollView
         android:layout_below="@id/tvWhere"
