@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.main.QueueTimeFragment">
 
     <TextView
@@ -16,7 +17,9 @@
         android:text="@string/unqueue"
         android:textColor="?android:textColorPrimary"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:drawablePadding="7dp"
+        app:drawableStartCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/tvWaitingTime"

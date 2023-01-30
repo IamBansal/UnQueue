@@ -17,7 +17,9 @@
         android:text="@string/unqueue"
         android:textColor="?android:textColorPrimary"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:drawablePadding="7dp"
+        app:drawableStartCompat="@drawable/logo" />
 
     <TextView
         android:layout_below="@id/tvName"
