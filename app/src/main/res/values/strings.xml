@@ -30,4 +30,7 @@
     <string name="give_this_qid_to_the_person_behind_the_reception">Give this QID to the person behind the reception</string>
     <string name="your_unique_qid">Your Unique QID</string>
     <string name="get_started">Get Started</string>
+    <string name="exit">Exit</string>
+    <string name="you_can_move_to_the_reception_for_your_service">You can move to the reception for your service</string>
+    <string name="thank_you_for_your_patience">Thank you for your\npatience</string>
 </resources>
