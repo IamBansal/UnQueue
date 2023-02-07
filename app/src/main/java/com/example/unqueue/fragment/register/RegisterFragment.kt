@@ -153,7 +153,6 @@ class RegisterFragment : Fragment() {
             if (task.isSuccessful) {
                 dialog.dismiss()
                 startActivity(Intent(requireActivity(), MainActivity::class.java))
-//                Toast.makeText(requireActivity(), "Sign in successful with\nUsername : ${account.displayName}\nEmail : ${account.email}", Toast.LENGTH_SHORT).show()
                 (activity as RegisterActivity).finish()
             } else {
                 Toast.makeText(requireActivity(), task.exception.toString(), Toast.LENGTH_SHORT).show()

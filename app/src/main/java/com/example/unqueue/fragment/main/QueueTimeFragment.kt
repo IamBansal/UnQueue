@@ -29,6 +29,9 @@ class QueueTimeFragment : Fragment() {
             notifyOnTurn()
         }
 
+        binding.tvPeopleWaiting.text = getString(R.string._people_are_waiting_ahead_in_your_queue, arguments?.getString("noOfPeople"))
+        binding.tvWaitingTime.text = getString(R.string.average_waiting_time_is_10_minutes, arguments?.getString("waitingTime"))
+
     }
 
     private fun notifyOnTurn() {

@@ -46,7 +46,7 @@
 
     <TextView
         android:id="@+id/tvPeopleWaiting"
-        android:text="@string/_20_people_are_waiting_ahead_in_your_queue"
+        android:text="@string/_people_are_waiting_ahead_in_your_queue"
         android:textColor="?android:textColorPrimary"
         android:layout_above="@id/image"
         android:gravity="center"

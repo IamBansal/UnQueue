@@ -33,6 +33,9 @@
         android:name="com.example.unqueue.fragment.main.QueueTimeFragment"
         android:label=""
         tools:layout="@layout/fragment_queue_time" >
+        <argument
+            android:name="noOfPeople"
+            app:argType="string" />
         <action
             android:id="@+id/action_queueTimeFragment_to_thanksFragment"
             app:destination="@id/thanksFragment" />

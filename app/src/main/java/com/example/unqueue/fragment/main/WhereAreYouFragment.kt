@@ -118,7 +118,7 @@ class WhereAreYouFragment : Fragment() {
 
         Firebase.firestore.collection("data").add(userQid).addOnSuccessListener {
             progress.dismiss()
-            findNavController().navigate(R.id.action_whereAreYouFragment_to_QueueFragment, bundleOf(("qid" to qid)))
+            findNavController().navigate(R.id.action_whereAreYouFragment_to_QueueFragment, bundleOf(("qid" to qid), ("domain" to place)))
         }
             .addOnFailureListener { e ->
                 progress.dismiss()

@@ -4,8 +4,8 @@
     <string name="content">~ Eliminate physical queues\n~ Join virtual queues from device\n~ Receive turn notifications\n~ Convenient and efficient</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="unqueue">UnQueue</string>
-    <string name="average_waiting_time_is_10_minutes">Average waiting time is 10 minutes</string>
-    <string name="_20_people_are_waiting_ahead_in_your_queue">20 people are waiting ahead in your queue</string>
+    <string name="average_waiting_time_is_10_minutes">Average waiting time is %s minutes</string>
+    <string name="_people_are_waiting_ahead_in_your_queue">%s people are waiting ahead in your queue</string>
     <string name="notify_me_when_my_turn_comes">Notify me when my turn comes</string>
     <string name="what_is_unqueue">What is UnQueue?</string>
     <string name="user">User</string>
