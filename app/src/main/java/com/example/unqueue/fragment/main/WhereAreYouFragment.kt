@@ -19,7 +19,7 @@ import com.example.unqueue.activity.RegisterActivity
 import com.example.unqueue.databinding.FragmentWhereAreYouBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class WhereAreYouFragment : Fragment() {
@@ -82,15 +82,15 @@ class WhereAreYouFragment : Fragment() {
             }
            binding.btnGovOffice.id -> {
                random += "GOV"
-               uploadInDB(random, "GovernmentOffice")
+               uploadInDB(random, "Government Office")
             }
            binding.btnFoodChain.id -> {
                random += "FOC"
-               uploadInDB(random, "FoodChain")
+               uploadInDB(random, "Food Chain")
             }
            binding.Ticket.id -> {
                random += "TIC"
-               uploadInDB(random, "TicketCounter")
+               uploadInDB(random, "Ticket Counter")
             }
            binding.Airport.id -> {
                random += "AIR"
@@ -110,18 +110,19 @@ class WhereAreYouFragment : Fragment() {
         progress.setMessage("Generating unique QID")
         progress.show()
 
-        val map = HashMap<String, Any>()
-        map["qid"]=qid
+        val userQid = hashMapOf(
+            "name" to firebaseAuth.currentUser!!.displayName,
+            "qid" to qid,
+            "domain" to place
+        )
 
-        FirebaseDatabase.getInstance().reference.child(place)
-            .child(firebaseAuth.currentUser!!.uid).updateChildren(map)
-            .addOnCompleteListener { task ->
+        Firebase.firestore.collection("data").add(userQid).addOnSuccessListener {
+            progress.dismiss()
+            findNavController().navigate(R.id.action_whereAreYouFragment_to_QueueFragment, bundleOf(("qid" to qid)))
+        }
+            .addOnFailureListener { e ->
                 progress.dismiss()
-                if (task.isSuccessful) {
-                    findNavController().navigate(R.id.action_whereAreYouFragment_to_QueueFragment, bundleOf(("qid" to qid)))
-                } else {
-                    Toast.makeText(requireActivity(), task.exception?.message, Toast.LENGTH_SHORT).show()
-                }
+                Toast.makeText(requireActivity(), e.message, Toast.LENGTH_SHORT).show()
             }
     }
 

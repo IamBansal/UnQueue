@@ -16,6 +16,7 @@ import com.example.unqueue.activity.MainActivity
 import com.example.unqueue.databinding.FragmentOTPBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.auth.UserProfileChangeRequest
 
 class OTPFragment : Fragment() {
 
@@ -43,6 +44,7 @@ class OTPFragment : Fragment() {
 
         val userOTP = binding.etOTP.text.toString().trim()
         val backendOTP = arguments?.getString("otp")
+        val name = arguments?.getString("name")
 
         val progress = ProgressDialog(requireContext())
         progress.setMessage("Signing you in...")
@@ -59,9 +61,9 @@ class OTPFragment : Fragment() {
                         if (task.isSuccessful) {
                             Log.d("check", "FirebaseAuth credentials verified")
 
-//                            val user = auth.currentUser
-//                            val profileUpdates = UserProfileChangeRequest.Builder().setDisplayName(name).build()
-//                            user!!.updateProfile(profileUpdates)
+                            val user = auth.currentUser
+                            val profileUpdates = UserProfileChangeRequest.Builder().setDisplayName(name).build()
+                            user!!.updateProfile(profileUpdates)
 //                            incorrectOTP.visibility = View.GONE
                             progress.dismiss()
                             startActivity(Intent(requireActivity(), MainActivity::class.java))
