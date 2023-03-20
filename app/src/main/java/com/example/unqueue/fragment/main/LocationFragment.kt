@@ -17,7 +17,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.unqueue.Adapter
+import com.example.unqueue.entity.Adapter
 import com.example.unqueue.databinding.FragmentLocationBinding
 import com.example.unqueue.entity.User
 import com.google.android.gms.location.FusedLocationProviderClient

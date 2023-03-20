@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.unqueue
+package com.example.unqueue.entity
 
 import android.app.ProgressDialog
 import android.content.Context
@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.unqueue.R
 import com.example.unqueue.databinding.SpinnerItemBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
