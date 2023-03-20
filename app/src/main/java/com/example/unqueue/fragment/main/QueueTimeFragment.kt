@@ -49,8 +49,9 @@ class QueueTimeFragment : Fragment() {
         val alarmManager = (activity as MainActivity).getSystemService(AppCompatActivity.ALARM_SERVICE) as AlarmManager
 
         val currentTime = System.currentTimeMillis()
-        val tenSecondsAfter = (waitingTime!!.toInt() - 15) * 1000
-        alarmManager.set(AlarmManager.RTC_WAKEUP, currentTime + tenSecondsAfter, pendingIntent)
+//        val minutesAfter = (waitingTime!!.toInt() - 15) * 1000
+        val secondsAfter = (waitingTime!!.toInt() - 15) * 1000 * 60
+        alarmManager.set(AlarmManager.RTC_WAKEUP, currentTime + secondsAfter, pendingIntent)
 
         findNavController().navigate(R.id.action_queueTimeFragment_to_thanksFragment)
     }

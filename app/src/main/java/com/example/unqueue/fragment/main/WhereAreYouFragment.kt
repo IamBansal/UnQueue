@@ -1,15 +1,11 @@
-@file:Suppress("DEPRECATION")
-
 package com.example.unqueue.fragment.main
 
 import android.app.AlertDialog
-import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -19,7 +15,6 @@ import com.example.unqueue.activity.RegisterActivity
 import com.example.unqueue.databinding.FragmentWhereAreYouBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class WhereAreYouFragment : Fragment() {
@@ -74,56 +69,34 @@ class WhereAreYouFragment : Fragment() {
         when (v.id) {
             binding.btnHospital.id -> {
                 random += "HOS"
-                uploadInDB(random, "Hospital")
+                findNavController().navigate(R.id.action_whereAreYouFragment_to_LocationFragment, bundleOf(("qid" to random), ("domain" to "Hospital")))
             }
            binding.btnBank.id -> {
                random += "BAN"
-               uploadInDB(random, "Bank")
+               findNavController().navigate(R.id.action_whereAreYouFragment_to_LocationFragment, bundleOf(("qid" to random), ("domain" to "Bank")))
             }
            binding.btnGovOffice.id -> {
                random += "GOV"
-               uploadInDB(random, "Government Office")
+               findNavController().navigate(R.id.action_whereAreYouFragment_to_LocationFragment, bundleOf(("qid" to random), ("domain" to "Government Office")))
             }
            binding.btnFoodChain.id -> {
                random += "FOC"
-               uploadInDB(random, "Food Chain")
+               findNavController().navigate(R.id.action_whereAreYouFragment_to_LocationFragment, bundleOf(("qid" to random), ("domain" to "Food Chain")))
             }
            binding.Ticket.id -> {
                random += "TIC"
-               uploadInDB(random, "Ticket Counter")
+               findNavController().navigate(R.id.action_whereAreYouFragment_to_LocationFragment, bundleOf(("qid" to random), ("domain" to "Ticket Counter")))
             }
            binding.Airport.id -> {
                random += "AIR"
-               uploadInDB(random, "Airport")
+               findNavController().navigate(R.id.action_whereAreYouFragment_to_LocationFragment, bundleOf(("qid" to random), ("domain" to "Airport")))
             }
            binding.btnSupermarket.id -> {
                random += "SPM"
-               uploadInDB(random, "Supermarket")
+               findNavController().navigate(R.id.action_whereAreYouFragment_to_LocationFragment, bundleOf(("qid" to random), ("domain" to "Supermarket")))
             }
 
         }
-    }
-
-    private fun uploadInDB(qid: String, place: String) {
-
-        val progress = ProgressDialog(requireContext())
-        progress.setMessage("Generating unique QID")
-        progress.show()
-
-        val userQid = hashMapOf(
-            "name" to firebaseAuth.currentUser!!.displayName,
-            "qid" to qid,
-            "domain" to place
-        )
-
-        Firebase.firestore.collection("data").add(userQid).addOnSuccessListener {
-            progress.dismiss()
-            findNavController().navigate(R.id.action_whereAreYouFragment_to_QueueFragment, bundleOf(("qid" to qid), ("domain" to place)))
-        }
-            .addOnFailureListener { e ->
-                progress.dismiss()
-                Toast.makeText(requireActivity(), e.message, Toast.LENGTH_SHORT).show()
-            }
     }
 
     private fun logout() {
